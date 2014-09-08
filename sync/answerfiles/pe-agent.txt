@@ -1,0 +1,56 @@
+#####################################################################
+# PUPPET AGENT INSTALL
+
+#--------------------------------------------------------------------
+# Global Answers
+# These answers are always needed.
+
+# Y or N — Whether to install. Answer files must set this to "Y".
+q_install=y
+
+# Y or N — Whether the installer has permission to install additional packages
+# from the OS’s repositories. If this is set to N, the installation will fail
+# if the installer detects missing dependencies.
+q_vendor_packages_install=y
+
+#--------------------------------------------------------------------
+# Components
+# These answers are always needed.
+
+# Y or N — Whether to install the puppet master role.
+q_puppetmaster_install=n
+
+# Y or N — Whether to install the database support (the console PostgreSQL
+# server and PuppetDB) role.
+q_puppetdb_install=n
+
+# Y or N — Whether to install the console role.
+q_puppet_enterpriseconsole_install=n
+
+# Y or N — Whether to install the cloud provisioner role.
+q_puppet_cloud_install=n
+
+# Y or N — Whether to install the puppet agent
+q_puppetagent_install=y
+
+#--------------------------------------------------------------------
+# Puppet Agent Answers
+# These answers are always needed.
+
+# String — An identifying string for this agent node. This per-node ID must be
+# unique across your entire site. Fully qualified domain names are often used
+# as agent certnames.
+q_puppetagent_certname=`hostname -f`
+
+# String — The hostname of the puppet master server. For the agent to trust the
+# master’s certificate, this must be one of the valid DNS names you chose when
+# installing the puppet master.
+q_puppetagent_server=compile.`hostname -d`
+
+# Y or N — Whether to quit the install if the puppet master cannot be reached.
+q_fail_on_unsuccessful_master_lookup=n
+
+# Y or N — This is a silent install option, default is N. When set to "Y", the
+# installer will skip master verification which allows the user to deploy agents
+# when they know the master won’t be available.
+q_skip_master_verification=y

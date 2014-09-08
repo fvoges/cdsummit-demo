@@ -1,0 +1,4 @@
+puppet-enterprise-*
+puppetcode
+sync/pe-latest.tar.gz
+.vagrant/
