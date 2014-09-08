@@ -1,0 +1,27 @@
+Simple Puppet Enterprise demo
+
+Requires:
+* Vagrant
+* Vagrant Fusion plugin
+* Vagrant Hostmanager plugin
+* VMware Fusion
+
+Changing the Vagrant file to use VirtualBox should be easy. I just happen to prefer Fusion.
+
+This setup has a Puppet Master and one node managed by the master.
+
+During provisioning, the master will run a script to pull a set of manifests into /etc/puppetlabs/puppet/environments/production. The script will also setup hiera.
+
+
+The manifests installed use the following modules from the Forge (installed using puppet module install):
+ * puppetlabs-ntp
+ * puppetlabs-vcsrepo
+ * jfryman-nginx
+
+It also installs roles, profiles and an "app" module. The agent node is classified with a static web site. The content for the site is retrieved form github using vcsrepo from the "app" module.
+
+
+Puppet code:
+  https://github.com/fvoges/puppet-demo
+
+
